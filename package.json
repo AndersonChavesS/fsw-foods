@@ -8,14 +8,18 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "prisma": {
+    "seed": "ts-node ./prisma/seed.ts"
+  },
   "dependencies": {
     "@prisma/client": "^5.22.0",
+    "fsw-foods": "file:",
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "^20.17.7",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
@@ -23,6 +27,7 @@
     "postcss": "^8",
     "prisma": "^5.22.0",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
   }
 }
