@@ -8,31 +8,32 @@ datasource db {
 }
 
 model Restaurant {
-  id                  String     @id @default(cuid())
+  id                  String     @id @default(uuid())
   name                String
-  imageUri            String
+  imageUrl            String
   deliveryFee         Decimal    @db.Decimal(10, 2)
   deliveryTimeMinutes Int
-  Categories          Category[]
-  Products            Product[]
+  categories          Category[]
+  products            Product[]
 }
 
 model Category {
-  id          String       @id @default(cuid())
+  id          String       @id @default(uuid())
   name        String
-  Restaurants Restaurant[]
-  Products    Product[]
+  imageUrl    String
+  restaurants Restaurant[]
+  products    Product[]
 }
 
 model Product {
-  id              String     @id @default(cuid())
-  name            String
-  description     String
-  imageUri        String
-  price           Decimal    @db.Decimal(10, 2)
-  discountPercent Int        @default(0)
-  restaurantId    String
-  Restaurant      Restaurant @relation(fields: [restaurantId], references: [id])
-  categoryId      String
-  Category        Category   @relation(fields: [categoryId], references: [id])
+  id                 String     @id @default(uuid())
+  name               String
+  description        String
+  imageUrl           String
+  price              Decimal    @db.Decimal(10, 2)
+  discountPercentage Int        @default(0)
+  restaurantId       String
+  restaurant         Restaurant @relation(fields: [restaurantId], references: [id])
+  categoryId         String
+  category           Category   @relation(fields: [categoryId], references: [id])
 }
